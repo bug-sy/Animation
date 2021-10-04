@@ -24,7 +24,12 @@ export default class Deck extends Component {
         this.state = { panResponder, position }
     }
 
-
+    getCardStyle = () => {
+        return{
+            ...this.state.position.getLayout(),
+            transform: [{rotate: '45deg'}]
+        }
+    }
 
     renderCards = () => {
         //console.log("-->",this.props.data)
@@ -34,7 +39,7 @@ export default class Deck extends Component {
                 return (
                     <Animated.View
                         key = {item.id}
-                        style={this.state.position.getLayout()}
+                        style={getCardStyle}
                         {...this.state.panResponder.panHandlers}
                     >
                         {this.props.renderCard(item)}
