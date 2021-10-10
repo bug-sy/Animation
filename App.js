@@ -28,6 +28,11 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import { Card, Button, } from 'react-native-elements';
 import Deck from "./app/screen/Deck"
+import MobxSection from "./app/screen/MobxSection"
+import ExampleOne from "./app/screen/MobxExample"
+
+
+const StoreContext = React.createContext();
 
 const DATA = [
   { id: 1, text: 'Card #1', uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-04.jpg' },
@@ -46,15 +51,8 @@ class App extends React.Component {
     // console.log("++++",item)
     return (
       <Card
-
-
       >
         <Card.Title>{item.text}</Card.Title>
-
-
-
-
-
         <View >
           <Image
             style={styles.image}
@@ -63,17 +61,13 @@ class App extends React.Component {
               uri: 'https://reactnative.dev/img/tiny_logo.png',
             }}
           />
-
         </View>
-
-
         <Text>I can customize the card further {item.text}</Text>
         <Button
           icon={{ name: "code" }}
           backgroundKColor="#03A9F4"
           title="View Now!"
         >
-
         </Button>
       </Card>
 
@@ -86,11 +80,13 @@ class App extends React.Component {
 
     return (
       <View style={styles.sectionContainer}>
-        <Deck
+        {/* <Deck
           data={DATA}
           renderCard={this.renderCard}
-        />
-        <Text style={{ fontFamily: typography.secondary }}>Welcome start a new journey</Text>
+        /> */}
+        {/* <MobxSection />
+        <Text style={{ fontFamily: typography.secondary }}>Welcome start a new journey</Text> */}
+        <ExampleOne/>
       </View>
     );
   };

@@ -5,7 +5,7 @@ import { View, Animated, PanResponder, Dimensions } from "react-native";
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_THRESHOLD = 0.25 * SCREEN_WIDTH;
-const SWIPE_OUT_DURATION =250;
+const SWIPE_OUT_DURATION = 250;
 
 export default class Deck extends Component {
 
@@ -23,8 +23,8 @@ export default class Deck extends Component {
             onPanResponderRelease: (event, gesture) => {
 
                 if (gesture.dx > SCREEN_THRESHOLD) {
-                   // console.log('swipe right !')
-                   this.forceSwipe('right');
+                    // console.log('swipe right !')
+                    this.forceSwipe('right');
                 }
                 else if (gesture.dx < -SCREEN_THRESHOLD) {
                     this.forceSwipe('left');
@@ -47,12 +47,20 @@ export default class Deck extends Component {
         }).start()
     }
 
-    forceSwipe = (direction) =>{
-        const x = direction === "right"? SCREEN_WIDTH : -SCREEN_WIDTH
+    forceSwipe = (direction) => {
+        const x = direction === "right" ? SCREEN_WIDTH : -SCREEN_WIDTH
         Animated.timing(this.state.position, {
-            toValue : {x, y: 0},
+            toValue: { x, y: 0 },
             duration: SWIPE_OUT_DURATION
-        }).start()
+        }).start(() => {
+           // this.onSwipeComplete(direction)
+        })
+    }
+
+    onSwipeComplete = (direction) => {
+        const { onSwipeLeft, onSwipeRight } = this.props
+
+        direction === "right" ? onSwipeLeft() : onSwipeRight()
     }
 
 
@@ -71,7 +79,7 @@ export default class Deck extends Component {
 
     renderCards = () => {
         //console.log("-->",this.props.data)
-        return this.props.data.map((item, indes) => {
+        return this.props.data.map((item, index) => {
 
             if (index === 0) {
                 return (
