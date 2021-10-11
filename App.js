@@ -27,9 +27,13 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import { Card, Button, } from 'react-native-elements';
-import Deck from "./app/screen/Deck"
-import MobxSection from "./app/screen/MobxSection"
-import ExampleOne from "./app/screen/MobxExample"
+// import Deck from "./app/screen/Deck"
+// import MobxSection from "./app/screen/MobxSection"
+// import ExampleOne from "./app/screen/MobxExample"
+ import Message from "./app/screen/MobxExample/Properties/Message"
+ import ChangeState from "./app/screen/MobxExample/Properties/ChangeState"
+
+
 
 
 const StoreContext = React.createContext();
@@ -86,7 +90,10 @@ class App extends React.Component {
         /> */}
         {/* <MobxSection />
         <Text style={{ fontFamily: typography.secondary }}>Welcome start a new journey</Text> */}
-        <ExampleOne/>
+         <Text style={{ fontFamily: typography.secondary }}>Welcome start a new journey</Text>
+        {/* <ExampleOne/> */}
+        {/* <Message/> */}
+   {/* <ChangeState/> */}
       </View>
     );
   };
