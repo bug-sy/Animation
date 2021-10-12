@@ -7,7 +7,9 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "backend": "json-server --watch db.json --port 3001",
+    "start:all": "concurrently \"npm react-native start\" \"npm run backend\""
   },
   "dependencies": {
     "mobx": "^6.3.3",
@@ -16,13 +18,15 @@
     "react-dom": "^17.0.2",
     "react-native": "0.65.1",
     "react-native-elements": "^3.4.2",
-    "readline-sync": "^1.4.10"
+    "readline-sync": "^1.4.10",
+    "yarn": "^1.22.15"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
     "@babel/runtime": "^7.15.4",
     "@react-native-community/eslint-config": "^3.0.1",
     "babel-jest": "^27.2.1",
+    "concurrently": "^6.3.0",
     "eslint": "^7.32.0",
     "jest": "^27.2.1",
     "metro-react-native-babel-preset": "^0.66.2",
