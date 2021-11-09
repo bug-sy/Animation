@@ -32,6 +32,7 @@ import { Card, Button, } from 'react-native-elements';
 // import ExampleOne from "./app/screen/MobxExample"
  import Message from "./app/screen/MobxExample/Properties/Message"
  import ChangeState from "./app/screen/MobxExample/Properties/ChangeState"
+import Lottieloader from './app/screen/lottieExample/Lottieloader';
 
 
 
@@ -84,16 +85,18 @@ class App extends React.Component {
 
     return (
       <View style={styles.sectionContainer}>
-        {/* <Deck
-          data={DATA}
-          renderCard={this.renderCard}
-        /> */}
-        {/* <MobxSection />
-        <Text style={{ fontFamily: typography.secondary }}>Welcome start a new journey</Text> */}
-         <Text style={{ fontFamily: typography.secondary }}>Welcome start a new journey</Text>
+      <StatusBar
+        animated={true}
+        backgroundColor="green"
+      
+
+
+         />
+         {/* <Text style={{ fontFamily: typography.secondary }}>Welcome start a new journey jadjflajsldfjalksjflk</Text> */}
         {/* <ExampleOne/> */}
         {/* <Message/> */}
    {/* <ChangeState/> */}
+   <Lottieloader/>
       </View>
     );
   };
@@ -103,6 +106,7 @@ const styles = StyleSheet.create({
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
+    backgroundColor:"red"
   },
   image: {
     height: 100,

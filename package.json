@@ -12,6 +12,7 @@
     "start:all": "concurrently \"npm react-native start\" \"npm run backend\""
   },
   "dependencies": {
+    "lottie-react-native": "^4.1.3",
     "mobx": "^6.3.3",
     "mobx-react": "^7.2.0",
     "react": "17.0.2",
